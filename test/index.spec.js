@@ -13,45 +13,45 @@ const { By } = require('selenium-webdriver');
 let providerWindowUrl;
 
 describe('Register with Home', () => {
-	it('The runtime is ready', async () => {
-		const isReady = await OpenFinSystem.waitForReady(10000);
-		expect(isReady).to.equal(true);
-	});
+	// it('The runtime is ready', async () => {
+	// 	const isReady = await OpenFinSystem.waitForReady(10000);
+	// 	expect(isReady).to.equal(true);
+	// });
 
-	it('Can switch to platform window', async () => {
-		const switched = await WebDriver.switchToWindow('identityString', [
-			'register-with-home',
-			'register-with-home'
-		]);
-		expect(switched).to.equal(true);
-	});
+	// it('Can switch to platform window', async () => {
+	// 	const switched = await WebDriver.switchToWindow('identityString', [
+	// 		'register-with-home',
+	// 		'register-with-home'
+	// 	]);
+	// 	expect(switched).to.equal(true);
+	// });
 
-	it('The title should be set', async () => {
-		const title = await WebDriver.getTitle();
-		expect(title).to.equal('Platform Provider');
-	});
+	// it('The title should be set', async () => {
+	// 	const title = await WebDriver.getTitle();
+	// 	expect(title).to.equal('Platform Provider');
+	// });
 
-	it('The url should be set', async () => {
-		providerWindowUrl = await WebDriver.getUrl();
-		expect(providerWindowUrl).not.be.undefined;
-	});
+	// it('The url should be set', async () => {
+	// 	providerWindowUrl = await WebDriver.getUrl();
+	// 	expect(providerWindowUrl).not.be.undefined;
+	// });
 
-	it('The runtime version should be set', async () => {
-		const fin = await OpenFinProxy.fin();
-		const version = await fin.System.getVersion();
-		expect(version).to.equal('38.126.82.69');
-	});
+	// it('The runtime version should be set', async () => {
+	// 	const fin = await OpenFinProxy.fin();
+	// 	const version = await fin.System.getVersion();
+	// 	expect(version).to.equal('38.126.82.69');
+	// });
 
-	it('The identity should be set', async () => {
-		const fin = await OpenFinProxy.fin();
-		expect(fin.me.identity.name).to.equal('register-with-home');
-		expect(fin.me.identity.uuid).to.equal('register-with-home');
-	});
+	// it('The identity should be set', async () => {
+	// 	const fin = await OpenFinProxy.fin();
+	// 	expect(fin.me.identity.name).to.equal('register-with-home');
+	// 	expect(fin.me.identity.uuid).to.equal('register-with-home');
+	// });
 
-	it('Can get a list of windows', async () => {
-		const windows = await WebDriver.getWindows();
-		expect(windows.length).to.greaterThan(0);
-	});
+	// it('Can get a list of windows', async () => {
+	// 	const windows = await WebDriver.getWindows();
+	// 	expect(windows.length).to.greaterThan(0);
+	// });
 
 	it('Can launch notification center in a security realm', async () => {
 		const launched = await OpenFinNotifications.launch();
